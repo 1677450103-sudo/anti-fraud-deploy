@@ -2,20 +2,25 @@ FROM python:3.11-slim-bookworm
 
 WORKDIR /app
 
-# 1. 先装 CPU 版 torch（节省 2GB）
 RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
 
-# 2. 装其他依赖
 RUN pip install --no-cache-dir \
-    -i https://pypi.org/simple \
-    -r requirements.txt
+    sentence-transformers \
+    numpy \
+    chromadb \
+    openai \
+    python-dotenv \
+    python-docx \
+    requests \
+    gunicorn \
+    waitress \
+    rank_bm25
 
-# Copy source (从仓库根目录复制)
-COPY ../rag_api.py .
-COPY ../chroma_db/ ./chroma_db/
-COPY ../.env .
+COPY rag_api.py .
+COPY chroma_db/ ./chroma_db/
 
 ENV PYTHONUNBUFFERED=1
+ENV PORT=80
 
 EXPOSE 80
 

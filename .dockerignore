@@ -1,0 +1,16 @@
+.venv/
+.venv-1/
+.venv-2/
+__pycache__/
+*.pyc
+.git/
+.gitignore
+.idea/
+.vscode/
+.DS_Store
+web/
+web_backup/
+models/
+*.log
+.env
+wsgi_error.log

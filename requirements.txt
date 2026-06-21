@@ -1,0 +1,8 @@
+sentence-transformers==5.1.2
+numpy==2.4.0
+chromadb
+openai
+python-dotenv
+python-docx
+gunicorn
+waitress

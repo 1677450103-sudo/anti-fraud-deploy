@@ -1,0 +1,50 @@
+{
+  "version": "1.0.0",
+  "envId": "your-env-id-here",
+  "service": {
+    "name": "anti-fraud-ai",
+    "version": "2.0.0",
+    "lang": "python",
+    "port": 80,
+    "build": {
+      "dockerfile": "Dockerfile",
+      "cmd": "pip install --no-cache-dir -i https://mirrors.tencent.com/pypi/simple --trusted-host mirrors.tencent.com -r requirements.txt 2>&1"
+    },
+    "run": {
+      "cmd": "python rag_api.py"
+    },
+    "cpu": 1,
+    "mem": 2,
+    "minNum": 1,
+    "maxNum": 4,
+    "ignore": [
+      ".venv",
+      ".venv-1",
+      ".venv-2",
+      "models",
+      "web",
+      "web_backup",
+      "uni-app",
+      "anyi_design",
+      "vector_data",
+      "articles",
+      "__pycache__",
+      "*.pyc",
+      ".git",
+      ".gitignore",
+      ".idea",
+      ".vscode",
+      "*.log",
+      "wsgi_error.log",
+      "*.csv",
+      "*.json",
+      "!cloudbaserc.json",
+      "!chroma_db/**/*.json",
+      "*.docx",
+      "*.md"
+    ]
+  },
+  "cloudrun": {
+    "name": "anti-fraud-ai"
+  }
+}
